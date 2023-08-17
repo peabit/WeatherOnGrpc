@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "WeatherOnGrpc";
+
+package greet;
+
+message GetCurrentWeatherInCityRequest {
+  string city = 1;
+}
+
+message CurrentWeatherInCityResponse {
+  string city = 1;
+  int32 temperature = 2;
+  string description = 3;
+}
+
+service CurrentWeatherInCityService {
+  rpc Get(GetCurrentWeatherInCityRequest) returns (CurrentWeatherInCityResponse);
+}
